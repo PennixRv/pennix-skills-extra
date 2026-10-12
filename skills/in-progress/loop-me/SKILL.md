@@ -1,17 +1,17 @@
 ---
 name: loop-me
-description: Grill me about specs for the workflows I want to build, within this workspace.
+description: Only when explicitly invoked, design a repeated-work process with clear triggers, outputs and justified human checkpoints, using the existing decision workflow and an explicit document location.
 disable-model-invocation: true
 argument-hint: "A workflow to design, or nothing to go find one"
 ---
 
-Run a stateful `/grilling` session whose only output is **workflow** specs. Use the grilling discipline (relentless, a round of questions at a time, a recommended answer attached to each) aimed at the vocabulary and goal below. Create, edit, and delete specs as the grilling resolves things.
+Use `$pennix-decision-grill` for consequential choices and produce a workflow specification in an explicit existing document location. Reuse settled decisions and available facts. Writing the specification does not authorize automation, scheduling, deployment or a second task system; edits preserve user content and follow the native text interface.
 
 ## The loop lens
 
-A **loop** is a recurring pattern in the user's life: their career, their week, their morning, a single repeated activity. Picturing a life as loops within loops reveals how predictable its activities really are, which is what makes them worth **delegating**. Use the lens to find loops worth specifying, and propose ones the user hasn't noticed.
+A **loop** is a repeated activity within the user's requested scope. Use the lens to assess whether specifying it would help; do not interview the user's whole life or introduce unrelated automation candidates by default.
 
-A **workflow** is the spec of one loop, made real. You run a workflow on a loop: the loop is its running instantiation. Workflows live in `workflows/*.md` and are the source of truth.
+A **workflow** describes one loop: its trigger, inputs, outputs, responsible operators, meaningful failure handling and completion signals. Its specification uses the agreed natural document location, without imposing a `workflows/` directory.
 
 ## Vocabulary
 
@@ -19,14 +19,14 @@ A shared language, reached for only when a workflow calls for it: never a checkl
 
 - **Trigger**: what fires each run, an **event** (a new email, a new issue) or a **schedule** (every morning). Event-triggering is usually the more efficient.
 - **Checkpoint**: a human-in-the-loop point where the user is asked to verify or decide. Some workflows have none and run autonomously; some use no AI at all.
-- **Push right**: defer the checkpoint as far as it will go. Do maximal work before involving the human, so they are asked once, late, with everything prepared.
+- **Checkpoint timing**: prepare evidence before a decision, but ask consequential choices when their answers constrain later work. Place execution reviews where they protect the actual process; do not always defer them to the end.
 - **Brief**: what a checkpoint presents, a tight, decision-ready summary (what was produced, why, and a link down to the asset itself), never the raw output. The user reads a brief, not a draft. Speed of review is imperative.
 
 ## Definition of done
 
-A workflow spec is done when an implementer agent could build it without asking a single question. Grill until then; nothing is done while a question remains.
+A workflow spec is ready when its essential choices, operators, interfaces, failure handling and acceptance signals support implementation. Record dynamic facts and reopening conditions; do not explore theoretical questions to prolong the interview. Implementation still follows the project's existing plan/approval path.
 
 ## The workspace
 
-- `workflows/*.md`: one spec per workflow.
-- `NOTES.md`: raw notes on the user's world, the tools they use, the channels they process, and their own terminology for both. When it is empty or thin, interview them about their world before specifying anything. Sharpen fuzzy terms into canonical ones as they surface, and record them here.
+- Confirm the specification's actual document location and reuse relevant existing task or process records.
+- Preserve evidence, real answers and assumptions there. Do not create a second `NOTES.md`, task ledger or scheduler automatically. A process may use events or schedules, AI or no AI, according to the actual need.

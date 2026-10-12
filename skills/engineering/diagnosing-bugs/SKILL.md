@@ -7,6 +7,10 @@ description: Diagnosis loop for hard bugs and performance regressions. Use when 
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
+## 工作流协作
+
+聚焦修复前的症状、可证伪假设、定向探测与回归信号。先遵守项目规则和 `$pennix-workflow-routing` 的工具/职责边界；保留已有证据和不确定性，不因复现困难无限扩大探测。修复、发布和持久化沿已有授权及项目任务推进；修复后复发预防由 Trellis `break-loop` 负责。HITL 模板通过 `bash scripts/hitl-loop.template.sh` 使用，不依赖可执行位、不在安装后运行；真正交互使用用户终端或宿主原生入口。
+
 When exploring the codebase, read `GLOSSARY.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
 
 ## Redact
@@ -17,9 +21,9 @@ If the redacted output is not enough to diagnose the bug, say so and ask the use
 
 ## Phase 1: Build a feedback loop
 
-**This is the skill.** Everything else is mechanical. If you have a **tight** pass/fail signal for the bug (one that goes red on _this_ bug), you will find the cause; bisection, hypothesis-testing, and instrumentation all just consume it. If you don't have one, no amount of staring at code will save you.
+Build the tightest useful pass/fail signal for the reported symptom. Bisection, hypothesis-testing, and instrumentation become easier with such a signal; when it is unavailable, use the best verified observations and state what they cannot prove.
 
-Spend disproportionate effort here. **Be aggressive. Be creative. Refuse to give up.**
+Keep reproduction work bounded by the question, available resources and authorization. Stop widening it when current evidence is enough to test a useful hypothesis.
 
 ### Ways to construct one, in roughly this order
 
@@ -48,22 +52,22 @@ A 30-second flaky loop is barely better than no loop; a 2-second deterministic o
 
 ### Non-deterministic bugs
 
-The goal is not a clean repro but a **higher reproduction rate**. Loop the trigger 100×, parallelise, add stress, narrow timing windows, inject sleeps. A 50%-flake bug is debuggable; 1% is not, so keep raising the rate until it's debuggable.
+The goal is a useful reproduction rate, not a perfect repro. Use bounded repeats or targeted timing probes when justified. Resource pressure, parallel stress or production instrumentation require the relevant environment's authorization and limits; record the observed rate and uncertainty.
 
 ### When you genuinely cannot build a loop
 
-Stop and say so explicitly. List what you tried. Ask the user for: (a) access to whatever environment reproduces it, (b) a redacted captured artifact (HAR file, log dump, core dump, screen recording with timestamps), or (c) permission to add temporary production instrumentation. Do **not** proceed to hypothesise without a loop.
+State what you tried and what is missing. Continue with verified logs, current code, a known regression window or other available evidence when it can distinguish hypotheses; label the uncertainty and verification limit. Ask only for necessary missing access or a redacted observation. Additional production instrumentation follows the existing approval path.
 
-### Completion criterion: a tight loop that goes red
+### Preferred feedback signal: a tight loop that goes red
 
-Phase 1 is done when the loop is **tight** and **red-capable**: you can name **one command** (a script path, a test invocation, a curl) that you have **already run at least once** (show the invocation and its output, redacted), and that is:
+When feasible, name **one command** (a script path, a test invocation, a curl) that you have **already run at least once** (show the invocation and its output, redacted). Assess it against these properties and record any limits:
 
 - [ ] **Red-capable**: it drives the actual bug code path and asserts the **user's exact symptom**, so it can go red on this bug and green once fixed. Not "runs without erroring"; it must be able to _catch this specific bug_.
-- [ ] **Deterministic**: same verdict every run (flaky bugs: a pinned, high reproduction rate, per above).
-- [ ] **Fast**: seconds, not minutes.
-- [ ] **Agent-runnable**: you can run it unattended; a human in the loop only via `scripts/hitl-loop.template.sh`.
+- [ ] **Repeatable**: same verdict where possible; for flaky bugs record the observed rate and uncertainty within the agreed resource limit.
+- [ ] **Timely**: short enough for useful feedback within the available environment's limits.
+- [ ] **Runnable**: unattended when possible; human interaction uses the host's native interface or a user-run script such as `scripts/hitl-loop.template.sh`.
 
-If you catch yourself reading code to build a theory before this command exists, **stop: jumping straight to a hypothesis is the exact failure this skill prevents.** No red-capable command, no Phase 2.
+Prefer a runnable signal before deeper investigation. If a red-capable command is unavailable, keep the missing signal explicit and investigate only hypotheses supported by existing evidence.
 
 ## Phase 2: Reproduce + minimise
 
@@ -83,11 +87,11 @@ Why bother: a minimal repro shrinks the hypothesis space in Phase 3 (fewer movin
 
 Done when **every remaining element is load-bearing**: removing any one of them makes the loop go green.
 
-Do not proceed until you have reproduced **and** minimised.
+Minimise when possible without losing the user's symptom. If reproduction is not quickly available, proceed with the evidence and limitations already recorded rather than treating this phase as an absolute gate.
 
 ## Phase 3: Hypothesise
 
-Generate **3–5 ranked hypotheses** before testing any of them. Single-hypothesis generation anchors on the first plausible idea.
+Generate a small ranked set of plausible hypotheses; one clear, well-supported cause need not be padded into several alternatives.
 
 Each hypothesis must be **falsifiable**: state the prediction it makes.
 
@@ -95,7 +99,7 @@ Each hypothesis must be **falsifiable**: state the prediction it makes.
 
 If you cannot state the prediction, the hypothesis is a vibe: discard or sharpen it.
 
-**Show the ranked list to the user before testing.** They often have domain knowledge that re-ranks instantly ("we just deployed a change to #3"), or know hypotheses they've already ruled out. Cheap checkpoint, big time saver. Don't block on it; proceed with your ranking if the user is AFK.
+Show the material hypotheses and their evidence when it helps the user assess the investigation. Continue already authorized probes; an unanswered consequential user choice remains blocked under the native Grill/host contract and is never resolved by elapsed time.
 
 ## Phase 4: Instrument
 
@@ -131,8 +135,8 @@ If a correct seam exists:
 
 Required before declaring done:
 
-- [ ] Original repro no longer reproduces (re-run the Phase 1 loop)
+- [ ] Original symptom is rechecked with the available feedback signal; missing reproduction or environmental limits remain explicit
 - [ ] Regression test passes (or absence of seam is documented)
 - [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
-- [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
+- [ ] Temporary artifacts retained or cleaned up according to their established ownership and the task's authorization
 - [ ] The hypothesis that turned out correct is stated in the commit / PR message, so the next debugger learns

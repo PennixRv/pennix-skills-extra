@@ -1,6 +1,6 @@
 ---
 name: writing-shape
-description: "Writing, exploit: shape raw material into an article, paragraph by paragraph."
+description: "Only when explicitly invoked for collaborative article writing, shape fixed raw material into a separate document while grounding reader concepts; optional branching follows the user's chosen writing mode."
 disable-model-invocation: true
 ---
 
@@ -9,6 +9,8 @@ disable-model-invocation: true
 The user has passed (or will pass) a markdown file of raw material. Treat it as the input pile: anything from a tidy list of fragments to a wall of unstructured prose to a transcript. The format does not matter. Read it end-to-end before doing anything else.
 
 Then run a shaping session that produces a separate article document. This is **exploit**: the exploring is done, the pile is fixed: commit to a structure and mine the pile to fill it. Do not edit the raw material file: it is read-only to this skill.
+
+中文内容遵守 `$pennix-chinese-tech-writing`；PRD、API、操作文档等保留其原生结构，不因本方法而强制逐段访谈。明确素材和成文目标，语义编辑用原生 `apply_patch`，复读目标并保留用户修改。需要用户决定的内容取舍使用既有 `$pennix-decision-grill`；不发布或自动保存知识。
 
 If the user did not say where to save the article, ask once and remember the path.
 
@@ -20,10 +22,10 @@ If the user did not say where to save the article, ask once and remember the pat
 
 1. **Read the pile.** Read the input file in full. Form a sense of what's in it.
 2. **Establish the prerequisites.** Settle with the user what the reader knows walking in: the concepts that are **grounded** from the start. Everything else must be grounded by a block before a later block can lean on it. See [Grounding](#grounding).
-3. **Draft 2–3 candidate openings.** Each opening should imply a different thesis or angle for the article. Show all of them. Force the user to pick or compose a hybrid. The chosen opening defines what the rest of the article must do.
+3. **Set the writing direction.** Reuse an already chosen angle. When the thesis is an important open choice, present a few grounded openings and let the user choose or supply their own direction. Do not force choices for routine formatting details.
 4. **Grow paragraph by paragraph.** After the opening lands, ask "given this opening, what does the reader need to hear next?" Pull material from the pile to answer. The next block may only lean on grounded concepts, and grounds new ones as it lands. Argue about the form the next block takes: a paragraph, a list, a table, a callout, a quote, a code block. Each format choice should be deliberate and defensible.
 5. **Append to the article file as you go.** Don't batch. Write each agreed paragraph or block immediately so the user can see the article taking shape.
-6. **Loop step 4 until the article is done.** The user decides when it's done.
+6. **Continue to the agreed completion signal.** Read [BEATS.md](BEATS.md) only when the user chooses branching mode. Ordinary shaping follows the established angle without forcing a choice at every paragraph.
 
 ## Grounding
 
@@ -54,11 +56,11 @@ Specific moves to keep using:
 
 Treat the raw material as a quarry, not a script. Pull a fragment, rework it to fit the surrounding paragraph, and place it. A fragment may be split across multiple paragraphs, merged with another, or paraphrased. The pile's job is to be mined; the article's job is to read as one voice.
 
-If the pile lacks something the article needs, name the gap explicitly: "We need an example here and the pile doesn't have one. Give me one now or we cut this section."
+If the pile lacks necessary evidence or an example, name the gap and its effect. Obtain authorized evidence or ask only for material the user must supply; do not invent facts or silently present a candidate as verified.
 
 ## Format arguments to actually have
 
-When choosing how to render a block, weigh these tradeoffs out loud with the user, not silently:
+Use these tradeoffs to choose an appropriate block. Ask only when the format materially affects a user-owned choice; otherwise apply the existing writing contract:
 
 - **Prose vs. list.** Prose carries argument; lists carry parallel items. If items aren't truly parallel, prose is better. If they are, a list is faster to scan.
 - **Inline vs. callout.** Tips, warnings, and asides go in callouts (`> [!TIP]`, `> [!NOTE]`), but only if they'd genuinely derail the main argument inline. Otherwise leave them inline.
