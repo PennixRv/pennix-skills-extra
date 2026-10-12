@@ -1,7 +1,11 @@
 ---
 name: wait-what
-description: "Stop. That last message did not land: re-pitch it."
+description: "仅在用户显式调用并表示未理解上一条回复时，以简体中文保留事实、条件和限制重新解释该回复，逐步澄清主要疑点。"
 disable-model-invocation: true
 ---
 
-Wait, I don't understand where you've got to here. Re-pitch that: give me a little bit of context, talk in ASD-STE100 Simplified Technical English, and use the ubiquitous language from `GLOSSARY.md` (follow `GLOSSARY-MAP.md` to the right one if the repo has more than one).
+先回读用户尚未理解的上一条实际回复和当前疑点，用简体中文重新表述其主要结论、必要背景与原因。用已有上下文或可核验的小例子解释术语；依照 `$pennix-chinese-tech-writing` 保留原事实、条件、风险和确定程度，不凭空补造机制或因果。
+
+用户已经指出疑点时直接解释；主要疑点仍不清楚时，先给出对原回复的简短理解，再按宿主原生交互合同取得会影响重述的最小信息。若用户仍未理解，缩小到一个概念或一步因果，逐步澄清。
+
+不要求英语水平分级或第二词汇表，不将一般复杂问题默认变成儿童化解释；不改变原问题目标，不自动写入知识或任务资产。

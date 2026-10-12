@@ -1,15 +1,19 @@
 ---
 name: teach
-description: Teach the user a new skill or concept, within this workspace.
+description: Only when explicitly invoked, teach a topic through focused lessons and evidenced learning records in an explicitly chosen learning directory; ordinary explanations do not create a course workspace.
 disable-model-invocation: true
 argument-hint: "What would you like to learn about?"
 ---
 
-The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
+The user explicitly requested a learning workflow. Support a focused lesson or continued learning as requested; ordinary explanation requests do not imply a persistent course.
+
+## 工作流协作
+
+先确认或复用用户明确的学习目录，避免在工程根目录创建课程资产。四份格式参考保留上游形态；中文内容用 `$pennix-chinese-tech-writing`，检索沿 `$pennix-workflow-routing` 和相应原生入口。仅在该学习目录保存授权的课程资料、真实表现和用户偏好，不自动写入思源、项目任务状态或用户全局规则。编辑前复读并保留用户改动；学习记录区分实际表现、用户自述和仅已讲授内容。
 
 ## Teaching Workspace
 
-Treat the current directory as a teaching workspace. Workspace paths (`./lessons/` and the rest) resolve from the directory `/teach` was run in; only the `*-FORMAT.md` links resolve from this skill's folder. The state of their learning is captured in this directory in several files:
+Use the explicitly chosen learning directory as the teaching workspace. Workspace paths (`./lessons/` and the rest) resolve from that directory; only the `*-FORMAT.md` links resolve from this skill's folder. Reuse existing learning files before creating new ones:
 
 - `MISSION.md`: A document capturing the _reason_ the user is interested in the topic. This should be used to ground all teaching. Use the format in [MISSION-FORMAT.md](./MISSION-FORMAT.md).
 - `./reference/*.html`: A directory of reference materials. These are the compressed learnings from the lessons - cheat sheets, reference algorithms, syntax, yoga poses, glossaries. They are the raw units of learning. They should be beautiful documents which print out well, and are designed for quick reference.
@@ -27,7 +31,7 @@ To learn at a deep level, the user needs three things:
 - **Skills**, acquired through highly-relevant interactive lessons devised by you, based on the knowledge
 - **Wisdom**, which comes from interacting with other learners and practitioners
 
-Before the `RESOURCES.md` is well-populated, your focus should be to find high-quality resources which will help the user acquire knowledge. Never trust your parametric knowledge.
+Ground material in relevant trusted sources and existing verified resources. Surface missing or uncertain evidence; use the established retrieval route when external evidence is needed rather than automatically browsing for every explanation.
 
 Some topics may require more skills than knowledge. Learning more about theoretical physics might be more knowledge-based. For yoga, more skills-based.
 
@@ -52,7 +56,7 @@ A lesson should be **beautiful**, with clean, readable typography and layout, si
 
 The lesson should be short, and completable very quickly. Learners' working memory is very small, and we need to stay within it. But each lesson should give the user a single tangible win that they can build on. It should be directly tied to the mission, and should be in the user's zone of proximal development.
 
-If possible, open the lesson file for the user by running a CLI command.
+Provide the artifact path. Open applications or send lesson files to others only under explicit instructions.
 
 Each lesson should link via HTML anchors to other lessons and reference documents.
 
@@ -64,15 +68,15 @@ Each lesson should contain a reminder to ask followup questions to the agent. Th
 
 Lessons are built from reusable **components**, stored in `./assets/`: stylesheets, quiz widgets, simulators, diagram helpers, and anything else a second lesson could reuse.
 
-Reuse is the default, not the exception. Before authoring a lesson, read `./assets/` and build from the components already there. When a lesson needs something new and reusable, write it as a component in `./assets/` and link to it; never inline code a future lesson would duplicate.
+Before authoring a lesson, reuse relevant components already in `./assets/`. Create a shared component only for an actual repeated need; a single lesson does not require a speculative component library.
 
-A shared stylesheet is the first component every workspace earns: every lesson links it, so the lessons look like one consistent course rather than a pile of one-offs. As the workspace grows, so should the component library.
+Use an existing stylesheet when available; add shared styling when the course actually needs it. Keep a single lesson self-contained when that better fits the requested learning output.
 
 ## The Mission
 
 Every lesson should be tied into the mission - the reason that the user is interested in learning about the topic.
 
-If the user is unclear about the mission, or the `MISSION.md` is not populated, your first job should be to question the user on why they want to learn this.
+Reuse a clear stated learning goal. Clarify missing consequential learning choices through the native decision path, then record the mission using [MISSION-FORMAT.md](MISSION-FORMAT.md); do not repeat questions the user has already answered.
 
 Failing to understand the mission will mean knowledge acquisition is not grounded in real-world goals. Lessons will feel too abstract. You will have no way of judging what the user should do next.
 
@@ -107,7 +111,7 @@ For skill acquisition, difficulty is the tool. Effortful retrieval is what build
 
 Each of these should be based on a **feedback loop**, where the user receives feedback on their performance. This feedback loop should be as tight as possible, giving feedback immediately - and ideally automatically.
 
-For quizzes, each answer should be exactly the same number of words (and characters, if possible). Vary which position holds the correct answer across questions. Don't give the user any clues about the answer through formatting or order.
+For quizzes, avoid accidental answer clues from format, length or position, while preserving accurate and understandable options; exact character counts are not required.
 
 ## Acquiring Wisdom
 

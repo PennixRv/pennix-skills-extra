@@ -1,31 +1,14 @@
-Skills are organized into bucket folders under `skills/`:
+# 精选 fork 维护规则
 
-- `engineering/`: daily code work
-- `productivity/`: daily non-code workflow tools
-- `misc/`: kept around but rarely used, not promoted
-- `in-progress/`: beta: public on purpose, feedback wanted, not shipped in the plugin
-- `deprecated/`: no longer used
+本仓库沿用 `skills/engineering/`、`skills/productivity/`、`skills/in-progress/` 的上游路径，只保留根 [README.md](README.md) 所列十项。当前修订任务、审核基线和同步方式见 [UPSTREAM.md](UPSTREAM.md)；本文件也通过 `AGENTS.md` 提供给宿主。
 
-Every skill in `engineering/` or `productivity/` (the **promoted** buckets) must have a reference in the top-level `README.md` and an entry in `.claude-plugin/plugin.json`'s `skills` array (the Claude Code plugin ships exactly the promoted set). Skills in `misc/`, `in-progress/`, and `deprecated/` must not appear in either.
+- 编辑前读取当前入口及实际引用，保持上游主要方法和格式，只做与已批准 Pennix/Trellis 合同协作所需的适配。
+- 新增自定义说明使用简体中文，已有英文内容不追溯翻译。正式名称、源码标识和业务含义保持准确。
+- 重要用户选择、任务与实施授权、工具路由、中文写作和知识落点使用现有 Pennix/Trellis 入口；不新增第二套 tracker、强制代理或自动知识写入。
+- 每个安装目录自足，包含闭合的支持引用、完整 MIT `LICENSE` 和维护用 `UPSTREAM.md`。来源 SHA、审核过程和许可说明放在维护记录，执行正文保留适用条件与方法。
+- 七项显式 Skill 同时保留 `disable-model-invocation: true` 和 `agents/openai.yaml` 的 `policy.allow_implicit_invocation: false`；前三项沿默认策略。根及各桶 README 链接实际保留入口。
+- 唯一可执行接纳清单和固定提交由 Pennix lifecycle catalog 管理。不要提供 plugin、全目录链接、npm 或自动同步发行路径。
+- 同步只 fetch 上游并人工审阅；保留删除，处理 modify/delete 冲突，检查支持依赖和被融合方法来源。新增项、扩大范围或实质新选择回根协调任务决策。
+- `docs/`、`.agents/`、`CHANGELOG.md` 和既有 changeset 为上游历史资产；它们不是当前精选工作流规则，也不参与安装。当前规则从本文件、根维护记录、保留 Skill 和实际宿主合同读取。
 
-Install commands are copied verbatim from [.agents/install-block.md](./.agents/install-block.md). `.claude-plugin/marketplace.json` is the repo's own marketplace. Every agent except Claude Code installs from it to get automatic updates, and Claude Code uses `claude-plugins-official`. Run `claude plugin validate . --strict` after touching either manifest. [ADR 0002](./.agents/adr/0002-ship-as-a-claude-code-plugin.md) records why.
-
-Each skill entry in the top-level `README.md` must link the skill name to its `SKILL.md`.
-
-Each bucket folder has a `README.md` that lists every skill in the bucket with a one-line description, with the skill name linked to its `SKILL.md`. The promoted buckets' `README.md`s and the top-level `README.md` group entries into **User-invoked** and **Model-invoked**; non-promoted bucket `README.md`s (`misc/`, `in-progress/`) use a flat list.
-
-Skills in `engineering/` and `productivity/` also have a human-facing docs page at `docs/<bucket>/<skill-name>.md` (the docs tree mirrors those two bucket folders under `skills/`). The published URL is `https://aihero.dev/skills-<skill-name>` regardless of bucket: the docs path is repo organisation only. When you add, rename, or change the behaviour of a skill in `engineering/` or `productivity/`, create or re-sync its docs page following [.agents/writing-docs.md](./.agents/writing-docs.md). A finished page carries four sections: **What it does**, **When to reach for it**, **Common questions**, and **It's working if**. `writing-docs.md` holds the template, the section order, and where to hunt for the questions. Skills in the non-promoted buckets (`misc/`, `in-progress/`, `deprecated/`) get **no** docs page. The one exception is a promoted skill removed outright: its page stays, marked archived (see `writing-docs.md`).
-
-Every `SKILL.md` is either user-invoked (`disable-model-invocation: true` plus `policy.allow_implicit_invocation: false` in `agents/openai.yaml`, reachable only by the human) or model-invoked (model- or user-reachable). See [.agents/invocation.md](./.agents/invocation.md).
-
-[`ask-matt`](./skills/engineering/ask-matt/SKILL.md) is the router that maps every user-reachable skill and how they relate. The same trigger that re-syncs a docs page applies to it: whenever you add, rename, remove, or change how a user-reachable skill fits the flows, re-read `ask-matt`'s `SKILL.md` and update it so the map stays accurate: a new skill it never mentions, or a stale one it still routes to, is a router that lies.
-
-To (re)link every skill outside `deprecated/` and `misc/` into the local harness skill directories (`~/.claude/skills`, `~/.agents/skills`), run `scripts/link-skills.sh`. Each entry is a symlink into this repo, so a `git pull` keeps installed skills current; re-run the script after adding, removing, or renaming a skill.
-
-No em-dashes anywhere in this repo's prose (`SKILL.md` files, docs, `README.md`, `CHANGELOG.md`, ADRs, changesets, code comments). Where a sentence reaches for one, rewrite it instead with a comma, colon, period, parentheses, or a conjunction, whichever the sentence actually wants; never do a blind character substitution.
-
-## Agent skills
-
-### Triage labels
-
-Canonical names, unchanged. See `docs/agents/triage-labels.md`. Issues are judged against [`SCOPE.md`](./SCOPE.md).
+提交前核对十项数量、名称及调用策略、支持引用、来源和许可，运行相关验证与 `git diff --check`。推送精选提交之后，才由 Pennix catalog 固定该 SHA 并实施设备部署；未经验证不声明完成。

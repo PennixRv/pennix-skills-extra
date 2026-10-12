@@ -1,12 +1,14 @@
 ---
 name: writing-fragments
-description: "Writing, explore: mine raw fragments, no structure yet."
+description: "Only when explicitly invoked for collaborative writing, collect sourced raw fragments in an explicit document without fixing article structure; preserve user edits and distinguish candidates from verified facts."
 disable-model-invocation: true
 ---
 
 <what-to-do>
 
-This is pure **explore**: widen the space of what could be written without committing to structure. Committing is _exploit_, a separate skill's job. Run a grilling session that produces fragments, interviewing the user relentlessly about whatever they want to write about. Imposing phases, outlines, or article structure is out of scope here.
+This is **explore** within the requested writing topic: collect possible material without fixing an article structure. Important choices use `$pennix-decision-grill`; do not prolong an interview when the existing material and answers are sufficient.
+
+中文素材按 `$pennix-chinese-tech-writing` 撰写；语义编辑走原生 `apply_patch`，复读目标文件并保留用户改动。保留引用来源、事实/候选/个人判断与不确定性；素材不是已验证的任务事实，不自动晋升为知识或项目规则。普通技术改写不需要素材探索阶段。
 
 As fragments emerge from either side of the conversation, append them to a single markdown file.
 
@@ -14,7 +16,7 @@ If the user did not pass a path, ask once where to save the document, then remem
 
 Capture fragments from the very first thing the user says, including the initial prompt.
 
-On first write, put a single H1 at the top with a working title (it can change later) and nothing else: no metadata, no TOC, no date.
+For a new standalone fragments document, start with a working H1 title; preserve any existing document format and necessary source attribution.
 
 </what-to-do>
 
@@ -35,7 +37,7 @@ Fragments are deliberately heterogeneous. Examples of what could be a fragment:
 - A complaint, a confession, a punchline.
 - A **leading word**: a compact metaphor or coinage the whole piece can hang on (one term that names the idea, the way _tracer bullets_ or _fog of war_ names a whole pattern).
 
-Of these, the leading word is the most valuable fragment to land. It is load-bearing: name the right one in explore and it shapes the structure, the transitions, and the title later, paying dividends through the entire exploit phase. When the conversation circles a recurring idea, push to coin a word for it.
+A recurring image or term can help the piece when it fits the topic and reader. Preserve established technical terminology; do not force a coinage or treat it as inherently more valuable than evidence and concrete observations.
 
 The novelist's diary is the model: years of unstructured noticings that later get mined for raw material. Fragments are noticings.
 
