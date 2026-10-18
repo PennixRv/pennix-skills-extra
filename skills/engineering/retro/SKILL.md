@@ -14,7 +14,7 @@ The user has asked for a **retrospective**. You are suggesting improvements to t
 
 3. Look for candidates for improvement in these categories.
 
-- **Navigation**: check the actual search path, existing FastCtx/CodeGraph/Windsurf facilities and why they were not used or failed. A pointer or new index is a candidate only when current facilities do not cover the evidenced need; do not initialize an index.
+- **Navigation**: check the actual search path, existing context-mode/CodeGraph/Windsurf facilities and why they were not used or failed. A pointer or new index is a candidate only when current facilities do not cover the evidenced need; do not initialize an index.
 - **Automated checks**: inspect relevant existing checks, CI and guardrails, their actual coverage and failure or non-execution. Recommend reuse, adjustment or a new check only when the observed risk justifies it; absence alone does not prove a defect.
 - **Coding standards**: verify the alleged violation against actual requirements and project rules. Mechanical errors may suit an existing deterministic check; judgment requires relevant context and evidence. Name the responsible source repository before suggesting a rule, Hook or CI change; do not create another standards file automatically.
 - **Global AGENTS.md**: are there any steering instructions that should be moved to coding standards (or automated checks) instead? _Use when_ the AGENTS.md file is particularly large - in the repo OR the user's global scope.

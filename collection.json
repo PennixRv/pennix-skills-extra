@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "name": "pennix-skills-extra",
+  "skills": {
+    "codebase-design": {"path": "skills/engineering/codebase-design", "license": "LICENSE"},
+    "diagnosing-bugs": {"path": "skills/engineering/diagnosing-bugs", "license": "LICENSE"},
+    "improve-codebase-architecture": {"path": "skills/engineering/improve-codebase-architecture", "license": "LICENSE"},
+    "loop-me": {"path": "skills/in-progress/loop-me", "license": "LICENSE"},
+    "prototype": {"path": "skills/engineering/prototype", "license": "LICENSE"},
+    "retro": {"path": "skills/engineering/retro", "license": "LICENSE"},
+    "teach": {"path": "skills/productivity/teach", "license": "LICENSE"},
+    "wait-what": {"path": "skills/productivity/wait-what", "license": "LICENSE"},
+    "writing-fragments": {"path": "skills/in-progress/writing-fragments", "license": "LICENSE"},
+    "writing-shape": {"path": "skills/in-progress/writing-shape", "license": "LICENSE"}
+  },
+  "commands": {},
+  "materialized": {}
+}
