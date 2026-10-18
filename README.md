@@ -1,6 +1,6 @@
 # pennix-skills-extra
 
-这是 [mattpocock/skills](https://github.com/mattpocock/skills) 的公开精选 fork，面向现有 Pennix/Trellis 工作流补充方法。保留上游原名和主要结构，限定在十项已审核 Skill；来源、适配与同步规则见 [UPSTREAM.md](UPSTREAM.md)。
+这是 [mattpocock/skills](https://github.com/mattpocock/skills) 的公开精选 fork，面向现有 Pennix/Trellis 工作流补充方法。保留上游原名和主要结构；`collection.json` 是唯一交付清单，限定十项已审核 Skill 并声明路径和许可。来源、适配与同步规则见 [UPSTREAM.md](UPSTREAM.md)。
 
 ## 精选内容
 
@@ -21,7 +21,7 @@
 
 ## 安装与升级
 
-通过已安装的 `pennix-component-lifecycle` 管理组件 `pennix-skills-extra`。该入口从 lifecycle catalog 的唯一白名单和固定提交安装到独立集合目录，并管理升级、核验、卸载及 receipt。
+通过已安装的 `pennix-component-lifecycle` 管理集合。工具固定本仓库提交，读取并独立验证 `collection.json`，再将所列内容安装到独立目录，并共同管理集合、receipt 和命令链接。本仓库不维护安装器或生命周期组件动作。
 
 系统安装不会初始化项目。重要选择、规划授权、项目任务与验收、工具路由、中文写作和知识管理继续遵守既有 Pennix/Trellis 原生入口；本集合补充方法。
 
