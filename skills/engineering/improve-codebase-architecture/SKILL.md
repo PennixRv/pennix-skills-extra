@@ -13,7 +13,7 @@ This command is _informed_ by the project's domain model and built on a shared d
 - Use `$codebase-design` when its vocabulary helps explain the candidate. Preserve actual component, API and domain names rather than imposing a renaming exercise.
 - Existing glossary, ADRs and project specs provide context where present; no new glossary or ADR is mandatory.
 
-只在用户显式请求时执行。本 Skill 负责发现候选与解释证据，不授权架构改造。检索按 `$pennix-workflow-routing`，重要选择按 `$pennix-decision-grill`，项目任务及封口沿现有 Trellis 工作流；选择候选不等于批准实施。
+只在用户显式请求时执行。本 Skill 负责发现候选与解释证据，不授权架构改造。检索按 `$pennix-workflow-routing`，重要选择按 `$pennix-decision-grill`，项目任务、阶段接受与实施授权沿现有 Trellis 工作流；选择候选不等于批准实施。
 
 ## Process
 
@@ -42,14 +42,14 @@ Present candidates in the current task's natural review artifact. Markdown and s
 
 Use before/after diagrams when they make the actual relationship easier to assess. Preserve the evidence and limitations in prose; a diagram does not prove a hypothetical improvement.
 
-For each candidate, render a card with:
+For each candidate, cover the relevant evidence in the chosen format:
 
 - **Files**: which files/modules are involved
 - **Problem**: why the current architecture is causing friction
 - **Solution**: plain English description of what would change
 - **Benefits**: explained in terms of locality and leverage, and how tests would improve
-- **Before / After diagram**: side-by-side, custom-drawn, illustrating the shallowness and the deepening
-- **Recommendation strength**: one of `Strong`, `Worth exploring`, `Speculative`, rendered as a badge
+- **Before / After diagram**: optional when it clarifies the actual boundary change
+- **Recommendation strength**: explain whether it is strong, worth exploring or speculative, and why; a badge is optional
 
 End the report with a **Top recommendation** section: which candidate you'd tackle first and why.
 

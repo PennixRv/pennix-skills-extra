@@ -9,7 +9,7 @@ A discipline for hard bugs. Skip phases only when explicitly justified.
 
 ## 工作流协作
 
-聚焦修复前的症状、可证伪假设、定向探测与回归信号。先遵守项目规则和 `$pennix-workflow-routing` 的工具/职责边界；保留已有证据和不确定性，不因复现困难无限扩大探测。修复、发布和持久化沿已有授权及项目任务推进；修复后复发预防由 Trellis `break-loop` 负责。HITL 模板通过 `bash scripts/hitl-loop.template.sh` 使用，不依赖可执行位、不在安装后运行；真正交互使用用户终端或宿主原生入口。
+聚焦修复前的症状、可证伪假设、定向探测与回归信号。先遵守项目规则和 `$pennix-workflow-routing` 的工具/职责边界；保留已有证据和不确定性，不因复现困难无限扩大探测。修复、发布和持久化沿已有授权及项目任务推进；修复后复发预防由 Trellis `break-loop` 负责。HITL 模板位于本 SKILL.md 同目录的 [scripts/hitl-loop.template.sh](scripts/hitl-loop.template.sh)，通过 `bash <实际 Skill 根目录>/scripts/hitl-loop.template.sh` 使用，不从项目 cwd 猜路径，不依赖可执行位、不在安装后运行；真正交互使用用户终端或宿主原生入口。
 
 When exploring the codebase, read `GLOSSARY.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
 

@@ -36,7 +36,7 @@ Review must follow the connected behaviour, relevant requirements and callers ra
 
 You have access to several files in the repo:
 
-- `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
+- `CLAUDE.md`/`AGENTS.md`: hosts load these according to their own discovery and inheritance rules; not every agent loads both. Keep the applicable file focused on stable rules and navigation, and preserve its native generated blocks and source owner.
 - Existing project specs and standards: apply when relevant during both implementation and review; preserve their actual ownership and entry points.
 - Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
 - Skills: respect each Skill's discoverable scope and current owner contract. Reference existing methods instead of creating a competing workflow entry.

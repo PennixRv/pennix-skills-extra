@@ -59,7 +59,9 @@ Create a single switcher component on the route:
 
 ```tsx
 // pseudo-code, adapt to the project's framework
-const variant = searchParams.get('variant') ?? 'A';
+const variant = searchParams.get('variant');
+const prototypeEnabled = import.meta.env.DEV && ['A', 'B', 'C'].includes(variant ?? '');
+if (!prototypeEnabled) return <ExistingPage {...data} />;
 return (
   <>
     {variant === 'A' && <VariantA {...data} />}
@@ -71,6 +73,8 @@ return (
 ```
 
 For sub-shape A (existing page): keep all the existing data fetching above the switcher; only the rendered subtree changes per variant.
+
+The example uses Vite's compile-time development flag; adapt it to the project's build system. Gate the entire prototype renderer and its imports behind the explicit development preview entry, not just the switcher. An ordinary visit without a valid variant must render the existing page. A throwaway route must be unavailable in production. Verify ordinary navigation, explicit preview and a production build; selecting a winner does not authorize promoting it into the live page.
 
 For sub-shape B (new page): the throwaway route under `/prototype/<name>` mounts the same switcher.
 
@@ -87,7 +91,7 @@ Behaviour:
 - Clicking an arrow updates the URL search param (use the framework's router, e.g. `router.replace` on Next, `navigate` on React Router, etc) so the variant is shareable and reload-stable.
 - Keyboard: `←` and `→` arrow keys also cycle. Don't intercept arrow keys when an `<input>`, `<textarea>`, or `[contenteditable]` is focused.
 - Visually distinct from the page (e.g. high-contrast pill, subtle shadow) so it's obviously not part of the design being evaluated.
-- Hidden in production builds: gate on `process.env.NODE_ENV !== 'production'` or an equivalent check, so a stray prototype merge can't ship the bar to users.
+- The switcher follows the same development-only gate as the prototype rendering and imports; hiding the bar alone does not protect the ordinary page.
 
 Put the switcher in a single shared component so both sub-shapes can reuse it. Locate it wherever shared UI lives in the project.
 
