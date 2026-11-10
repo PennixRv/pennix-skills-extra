@@ -1,7 +1,6 @@
 ---
 name: improve-codebase-architecture
-description: Only when explicitly invoked, inspect architectural friction in a named subsystem or evidenced change hotspot, present grounded candidates with useful diagrams, and hand important choices to the existing planning workflow.
-disable-model-invocation: true
+description: "在具名子系统或有证据的变化热点存在架构摩擦时，检查耦合、浅模块和测试边界，提出有源码依据的改进候选；普通局部修复不触发全仓审查。"
 ---
 
 # Improve Codebase Architecture
@@ -13,7 +12,7 @@ This command is _informed_ by the project's domain model and built on a shared d
 - Use `$codebase-design` when its vocabulary helps explain the candidate. Preserve actual component, API and domain names rather than imposing a renaming exercise.
 - Existing glossary, ADRs and project specs provide context where present; no new glossary or ADR is mandatory.
 
-只在用户显式请求时执行。本 Skill 负责发现候选与解释证据，不授权架构改造。检索按 `$pennix-workflow-routing`，重要选择按 `$pennix-decision-grill`，项目任务、阶段接受与实施授权沿现有 Trellis 工作流；选择候选不等于批准实施。
+当前范围存在架构摩擦或需要改进候选时采用，不要求用户点名。本 Skill 负责发现候选与解释证据，不授权架构改造。检索按问题选择适用来源，跨组件或职责不清时使用 `$pennix-workflow-routing`；重要选择按 `$pennix-decision-grill`，项目任务、阶段接受与实施授权沿现有 Trellis 工作流。完成候选后返回当前决策或方案；具体模块接口比较可采用 `codebase-design`，不因此扩大扫描范围。
 
 ## Process
 

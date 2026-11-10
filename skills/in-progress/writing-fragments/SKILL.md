@@ -1,7 +1,6 @@
 ---
 name: writing-fragments
-description: "Only when explicitly invoked for collaborative writing, collect sourced raw fragments in an explicit document without fixing article structure; preserve user edits and distinguish candidates from verified facts."
-disable-model-invocation: true
+description: "写作素材散乱、结构尚未确定且需要保留原始观察或来源时，收集保真的素材片段；已有材料可直接成文，普通改写不强制先做素材探索。"
 ---
 
 <what-to-do>
@@ -10,9 +9,9 @@ This is **explore** within the requested writing topic: collect possible materia
 
 中文素材按 `$pennix-chinese-tech-writing` 撰写；语义编辑走原生 `apply_patch`，复读目标文件并保留用户改动。保留引用来源、事实/候选/个人判断与不确定性；素材不是已验证的任务事实，不自动晋升为知识或项目规则。普通技术改写不需要素材探索阶段。
 
-As fragments emerge from either side of the conversation, append them to a single markdown file.
+As fragments emerge from either side of the conversation, preserve them in the current authorized writing document. If the user wants conversational material only, collect it in the reply without creating a file.
 
-If the user did not pass a path, ask once where to save the document, then remember it for the rest of the session.
+Reuse an already authorized task or writing location. Ask for a path only when persistent saving is requested and its target is still missing; remember it for the rest of the session. Return to shaping or the current task once the material is sufficient.
 
 Capture fragments from the very first thing the user says, including the initial prompt.
 

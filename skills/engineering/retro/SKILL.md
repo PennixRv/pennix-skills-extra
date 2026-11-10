@@ -1,10 +1,9 @@
 ---
 name: retro
-description: "Only when explicitly invoked, review the current or specified coding session for evidenced navigation, tool, rule, check and information friction; propose improvements without changing the environment."
-disable-model-invocation: true
+description: "用户希望优化执行方法，或当前会话出现值得解释的检索、工具、规则、检查或信息摩擦时，基于实际证据复盘并提出改进；正常收尾不自动复盘，不直接修改环境。"
 ---
 
-The user has asked for a **retrospective**. You are suggesting improvements to the coding agent's **environment** to improve future runs.
+Use a **retrospective** when the requested improvement or evidenced execution friction benefits from reviewing how the work happened. You are suggesting improvements to the coding agent's **environment** to improve future runs. A single high-impact incident can justify this review; do not require repeated failures or add a retrospective to every closeout. Return the evidence and recommendations to the current task or request.
 
 ## Steps
 

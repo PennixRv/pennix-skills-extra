@@ -9,15 +9,17 @@
 | [diagnosing-bugs](skills/engineering/diagnosing-bugs/SKILL.md) | 有界诊断、复现、假设、修复和回归验证 | 默认发现策略 |
 | [codebase-design](skills/engineering/codebase-design/SKILL.md) | 深模块、接口、seam 和替代设计比较 | 默认发现策略 |
 | [prototype](skills/engineering/prototype/SKILL.md) | 用逻辑或界面原型回答具体设计问题 | 默认发现策略 |
-| [improve-codebase-architecture](skills/engineering/improve-codebase-architecture/SKILL.md) | 按已选范围提出有证据的架构改进候选 | 仅显式调用 |
-| [retro](skills/engineering/retro/SKILL.md) | 依据实际会话与已有设施提出工作流改进候选 | 仅显式调用 |
-| [teach](skills/productivity/teach/SKILL.md) | 在明确学习目录中组织课程、演示和测验 | 仅显式调用 |
-| [wait-what](skills/productivity/wait-what/SKILL.md) | 保留事实和条件，重新解释前一回复 | 仅显式调用 |
-| [loop-me](skills/in-progress/loop-me/SKILL.md) | 将工作流思路收敛为可执行规格 | 仅显式调用 |
-| [writing-fragments](skills/in-progress/writing-fragments/SKILL.md) | 围绕写作目标收集并保真记录素材 | 仅显式调用 |
-| [writing-shape](skills/in-progress/writing-shape/SKILL.md) | 将只读素材形成文章，可选择分支模式 | 仅显式调用 |
+| [improve-codebase-architecture](skills/engineering/improve-codebase-architecture/SKILL.md) | 按已选范围提出有证据的架构改进候选 | 默认发现策略 |
+| [retro](skills/engineering/retro/SKILL.md) | 依据实际会话与已有设施提出工作流改进候选 | 默认发现策略 |
+| [teach](skills/productivity/teach/SKILL.md) | 聚焦教学、练习与反馈；持久课程使用明确学习目录 | 默认发现策略 |
+| [wait-what](skills/productivity/wait-what/SKILL.md) | 保留事实和条件，重新解释前一回复 | 默认发现策略 |
+| [loop-me](skills/in-progress/loop-me/SKILL.md) | 将工作流思路收敛为可执行规格 | 默认发现策略 |
+| [writing-fragments](skills/in-progress/writing-fragments/SKILL.md) | 围绕写作目标收集并保真记录素材 | 默认发现策略 |
+| [writing-shape](skills/in-progress/writing-shape/SKILL.md) | 将只读素材形成文章，可选择分支模式 | 默认发现策略 |
 
 桶路径沿用上游组织方式；本 fork 的接纳和调用策略以上表及实际元数据为准。`writing-beats` 的差异方法并入 `writing-shape/BEATS.md`，其余已融合或未接纳项均没有独立 Skill 入口。
+
+按真实问题主动选择，不要求用户点名。方法明确时直接使用；组合、职责不清或五阶段衔接可读取当前宿主声明的 `pennix-workflow-routing`。方法完成后返回当前请求；持久写入、公开发布、安装、自动化和知识保存仍遵守各自授权与原生 owner。
 
 ## 安装与升级
 

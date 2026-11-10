@@ -6,6 +6,12 @@
 
 ## 当前修订任务
 
+### 场景路由实施（2026-11-10）
+
+当前维护任务为根 `11-10-pennix-skills-scenario-routing` 的 WP1，源码分支 main，完整方案已获用户明确批准。十项现均按业务场景默认发现：移除七项的双宿主显式限制，description、正文、维护说明同步；保持原名、上游方法和许可。教学与写作允许先在对话交付，持久产物复用已授权位置，不把文件路径变成方法入口门槛。
+
+Trellis 保有五阶段、接受与授权，现有 Pennix 总路由拥有跨组件场景连接；本 fork 不增加调度器或运行态。验证十项身份、隐式策略、相对引用闭合、来源和 MIT notice；真实正反例与恢复由根任务绑定两集合正式身份执行。以下精选首发记录保留为历史，其七项显式策略已由本次批准替代。
+
 任务为 `pennix-curation`，源码工作分支 `task/pennix-curation`，目标 `main`。它执行 `codex-workflow-optimization` 根任务 `matt-skills-pennix-lifecycle-plan` 已获用户明确批准的 revision 3 中列明的精选 fork 修改面；根侧记录负责跨仓库协调，本文件是本源码仓库的修订任务与上游维护自然落点，不建立第二任务运行时。
 
 当前阶段为精选内容适配与静态验收。保留十项原位 Skill：`diagnosing-bugs`、`codebase-design`、`prototype`、`improve-codebase-architecture`、`retro`、`teach`、`loop-me`、`writing-fragments`、`writing-shape`、`wait-what`；已物理移除其他 28 个 Skill 目录。保留原名，七项仅显式调用，前三项沿默认发现策略。`writing-beats` 只将已核验分支差集融合进 `writing-shape/BEATS.md`，不保留独立入口。
@@ -16,7 +22,7 @@
 
 去除强制代理、第二 tracker/任务、自动知识写入、强制术语改名与无授权部署副作用；按现有 Pennix 路由、Grill、中文写作及项目 Trellis 原生入口协作。保留英文上游资产，仅作必要语义适配；新增 Pennix 专有说明使用简体中文。
 
-每个可安装目录包含闭合支持文件、引用、来源和适用 MIT notice。清理完整库 plugin、installer 和发布清单的无效入口；不新增 npm/Plugin 发行，也不设置自动同步。唯一可执行白名单与安装 pin 在 Pennix lifecycle catalog，本文件的名单只是已批准修订记录。
+每个可安装目录包含闭合支持文件、引用、来源和适用 MIT notice。清理完整库 plugin、installer 和发布清单的无效入口；不新增 npm/Plugin 发行，也不设置自动同步。唯一交付成员清单是本仓库 `collection.json`，安装 pin 在 Pennix lifecycle catalog，本文件的名单只是修订记录。
 
 静态结构/引用/元数据/许可审查先完成，再提交推送固定精选 SHA，由 Pennix catalog pin 后实施双集合和宿主发现/触发验收。验收证据不足不得声明完成。扩大接纳名单、owner、来源执行方式、公开行为或验收时回根任务决策，不在本 fork 静默扩大。
 

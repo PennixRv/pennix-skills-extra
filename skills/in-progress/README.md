@@ -1,6 +1,6 @@
 # 工作流与写作方法
 
-路径沿用上游；本桶三项均已进入精选集合且仅显式调用，分发和协作规则见根 [README.md](../../README.md)。
+路径沿用上游；本桶三项均已进入精选集合并按真实场景默认发现，分发和协作规则见根 [README.md](../../README.md)。
 
 - [loop-me](loop-me/SKILL.md)：将工作流思路形成有界、可执行的规格。
 - [writing-fragments](writing-fragments/SKILL.md)：围绕写作目标保真提取素材。

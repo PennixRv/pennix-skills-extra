@@ -1,18 +1,17 @@
 ---
 name: writing-shape
-description: "Only when explicitly invoked for collaborative article writing, shape fixed raw material into a separate document while grounding reader concepts; optional branching follows the user's chosen writing mode."
-disable-model-invocation: true
+description: "已有素材、明确读者和成文目标时，将材料组织成概念衔接清楚的草稿或文章；保护原材料，普通技术文档保留原生结构，不强制逐段访谈。"
 ---
 
 <what-to-do>
 
-The user has passed (or will pass) a markdown file of raw material. Treat it as the input pile: anything from a tidy list of fragments to a wall of unstructured prose to a transcript. The format does not matter. Read it end-to-end before doing anything else.
+Use the supplied material in the conversation or an explicitly identified file as the input pile: anything from a tidy list of fragments to a wall of unstructured prose to a transcript. The format does not matter. Read the complete relevant material before shaping it.
 
-Then run a shaping session that produces a separate article document. This is **exploit**: the exploring is done, the pile is fixed: commit to a structure and mine the pile to fill it. Do not edit the raw material file: it is read-only to this skill.
+Then produce the requested draft in the reply, or a separate article document when persistent writing has an authorized target. This is **exploit**: the exploring is done, the pile is fixed: commit to a structure and mine the pile to fill it. Do not edit the raw material file: it is read-only to this skill.
 
 中文内容遵守 `$pennix-chinese-tech-writing`；PRD、API、操作文档等保留其原生结构，不因本方法而强制逐段访谈。明确素材和成文目标，语义编辑用原生 `apply_patch`，复读目标并保留用户修改。需要用户决定的内容取舍使用既有 `$pennix-decision-grill`；不发布或自动保存知识。
 
-If the user did not say where to save the article, ask once and remember the path.
+Ask for a path only when persistent saving is requested and its target is missing; reuse an already authorized task or writing location. A conversational draft needs no file path. Complete the draft with the available material; ask only about consequential unresolved choices, then return to the current task or request.
 
 </what-to-do>
 
@@ -24,7 +23,7 @@ If the user did not say where to save the article, ask once and remember the pat
 2. **Establish the prerequisites.** Settle with the user what the reader knows walking in: the concepts that are **grounded** from the start. Everything else must be grounded by a block before a later block can lean on it. See [Grounding](#grounding).
 3. **Set the writing direction.** Reuse an already chosen angle. When the thesis is an important open choice, present a few grounded openings and let the user choose or supply their own direction. Do not force choices for routine formatting details.
 4. **Grow paragraph by paragraph.** After the opening lands, ask "given this opening, what does the reader need to hear next?" Pull material from the pile to answer. The next block may only lean on grounded concepts, and grounds new ones as it lands. Argue about the form the next block takes: a paragraph, a list, a table, a callout, a quote, a code block. Each format choice should be deliberate and defensible.
-5. **Append to the article file as you go.** Don't batch. Write each agreed paragraph or block immediately so the user can see the article taking shape.
+5. **Deliver the draft in the chosen medium.** In a collaborative paragraph session, append agreed blocks to the authorized article file as they settle. For a requested complete draft, deliver it directly without introducing a paragraph-by-paragraph approval loop.
 6. **Continue to the agreed completion signal.** Read [BEATS.md](BEATS.md) only when the user chooses branching mode. Ordinary shaping follows the established angle without forcing a choice at every paragraph.
 
 ## Grounding

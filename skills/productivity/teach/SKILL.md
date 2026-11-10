@@ -1,15 +1,14 @@
 ---
 name: teach
-description: Only when explicitly invoked, teach a topic through focused lessons and evidenced learning records in an explicitly chosen learning directory; ordinary explanations do not create a course workspace.
-disable-model-invocation: true
+description: "用户希望掌握知识或技能，且练习与反馈有实际价值时，组织聚焦课程、演示和检索练习；可先在对话教学，普通术语解释不创建课程工作区。"
 argument-hint: "What would you like to learn about?"
 ---
 
-The user explicitly requested a learning workflow. Support a focused lesson or continued learning as requested; ordinary explanation requests do not imply a persistent course.
+Support a focused lesson or continued learning when the user's learning goal calls for practice and feedback. A lesson can begin in the conversation; ordinary explanation requests do not imply a persistent course.
 
 ## 工作流协作
 
-先确认或复用用户明确的学习目录，避免在工程根目录创建课程资产。四份格式参考保留上游形态；中文内容用 `$pennix-chinese-tech-writing`，检索沿 `$pennix-workflow-routing` 和相应原生入口。仅在该学习目录保存授权的课程资料、真实表现和用户偏好，不自动写入思源、项目任务状态或用户全局规则。编辑前复读并保留用户改动；学习记录区分实际表现、用户自述和仅已讲授内容。
+先依据已有目标开展简短讲授、练习和实际反馈，无需为对话教学先索取目录。用户需要持久课程时，确认或复用明确的学习目录，避免在工程根目录创建课程资产。以下 workspace、HTML 和记录格式适用于持久课程；对话模式保留同样的学习目标、检索练习和反馈方法，不要求文件。四份格式参考保留上游形态；中文内容用 `$pennix-chinese-tech-writing`，外部证据按适用原生检索入口取得。仅在学习目录保存授权资料，不自动写入思源、项目任务状态或用户全局规则。编辑前复读并保留用户改动；学习记录区分实际表现、用户自述和仅已讲授内容，不把已讲授当成已掌握。
 
 ## Teaching Workspace
 

@@ -1,11 +1,10 @@
 ---
 name: loop-me
-description: Only when explicitly invoked, design a repeated-work process with clear triggers, outputs and justified human checkpoints, using the existing decision workflow and an explicit document location.
-disable-model-invocation: true
+description: "重复活动的触发、输入输出或人工协作需要梳理时，设计有责任、检查点和失败处理的流程规格；单次工程计划不引入自动化、调度器或第二任务系统。"
 argument-hint: "A workflow to design, or nothing to go find one"
 ---
 
-Use `$pennix-decision-grill` for consequential choices and produce a workflow specification in an explicit existing document location. Reuse settled decisions and available facts. Writing the specification does not authorize automation, scheduling, deployment or a second task system; edits preserve user content and follow the native text interface.
+Use `$pennix-decision-grill` for consequential choices and produce a workflow specification in the current task or an explicitly chosen existing document location. If no persistent output is requested or authorized, form the specification in the conversation first. Reuse settled decisions and available facts. Writing the specification does not authorize automation, scheduling, deployment or a second task system; edits preserve user content and follow the native text interface. Return to the current request after the repeated process is sufficiently specified.
 
 ## The loop lens
 
