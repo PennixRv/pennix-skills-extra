@@ -6,6 +6,10 @@
 
 ## 当前修订任务
 
+### 协作角色与宿主边界（2026-11-11）
+
+关联根任务 `collaboration-tool-capability-audit` 第 11 版已批准合同 WP2，源码分支 `fix/collaboration-role-host-boundaries`，维护目标 `main`。仅修改 writing-fragments、writing-shape 的宿主原生编辑条件和执行者职责：Trellis 团队成员只交指定只读成果，Paseo 委派 Agent 可写授权实施包；两类执行者遇未决选择向主 Agent 回报，不直接询问用户。保留原生名称、十项清单、上游方法、支持引用及许可；验证通过后再由根任务准备固定提交与原生部署计划，当前不代表现场已部署。
+
 ### 场景路由实施（2026-11-10）
 
 当前维护任务为根 `11-10-pennix-skills-scenario-routing` 的 WP1，源码分支 main，完整方案已获用户明确批准。十项现均按业务场景默认发现：移除七项的双宿主显式限制，description、正文、维护说明同步；保持原名、上游方法和许可。教学与写作允许先在对话交付，持久产物复用已授权位置，不把文件路径变成方法入口门槛。

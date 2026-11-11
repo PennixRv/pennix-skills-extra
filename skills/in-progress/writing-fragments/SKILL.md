@@ -7,7 +7,9 @@ description: "写作素材散乱、结构尚未确定且需要保留原始观察
 
 This is **explore** within the requested writing topic: collect possible material without fixing an article structure. Important choices use `$pennix-decision-grill`; do not prolong an interview when the existing material and answers are sufficient.
 
-中文素材按 `$pennix-chinese-tech-writing` 撰写；语义编辑走原生 `apply_patch`，复读目标文件并保留用户改动。保留引用来源、事实/候选/个人判断与不确定性；素材不是已验证的任务事实，不自动晋升为知识或项目规则。普通技术改写不需要素材探索阶段。
+中文素材按 `$pennix-chinese-tech-writing` 撰写；Codex 的语义编辑走原生 `apply_patch`，其他宿主使用其声明的原生语义编辑工具，复读目标文件并保留用户改动。保留引用来源、事实/候选/个人判断与不确定性；素材不是已验证的任务事实，不自动晋升为知识或项目规则。普通技术改写不需要素材探索阶段。
+
+先遵守分配角色：Trellis 团队协作（Trellis Teamwork）的团队成员（Trellis teammate）仅在指定只读包和报告位置收集材料；Paseo 并行协作（Paseo-based-parallelism）的委派 Agent（Paseo delegated-agent）可在已授权实施包内写作。两者都不直接询问用户；缺少材料、保存位置或范围外选择返回主 Agent 的既有报告入口，不创建问答通道。下文面向用户的访谈和路径询问仅适用于主 Agent。
 
 As fragments emerge from either side of the conversation, preserve them in the current authorized writing document. If the user wants conversational material only, collect it in the reply without creating a file.
 

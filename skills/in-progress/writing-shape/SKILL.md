@@ -9,7 +9,9 @@ Use the supplied material in the conversation or an explicitly identified file a
 
 Then produce the requested draft in the reply, or a separate article document when persistent writing has an authorized target. This is **exploit**: the exploring is done, the pile is fixed: commit to a structure and mine the pile to fill it. Do not edit the raw material file: it is read-only to this skill.
 
-中文内容遵守 `$pennix-chinese-tech-writing`；PRD、API、操作文档等保留其原生结构，不因本方法而强制逐段访谈。明确素材和成文目标，语义编辑用原生 `apply_patch`，复读目标并保留用户修改。需要用户决定的内容取舍使用既有 `$pennix-decision-grill`；不发布或自动保存知识。
+中文内容遵守 `$pennix-chinese-tech-writing`；PRD、API、操作文档等保留其原生结构，不因本方法而强制逐段访谈。明确素材和成文目标；Codex 语义编辑用原生 `apply_patch`，其他宿主使用其声明的原生语义编辑工具，复读目标并保留用户修改。需要用户决定的内容取舍使用既有 `$pennix-decision-grill`；不发布或自动保存知识。
+
+先遵守分配角色：Trellis 团队协作（Trellis Teamwork）的团队成员（Trellis teammate）仅交付指定只读成果；Paseo 并行协作（Paseo-based-parallelism）的委派 Agent（Paseo delegated-agent）可修改已授权实施包内的文档。两者都不直接询问用户；缺少素材、目标路径或范围外选择返回主 Agent 的既有报告入口，不重启方案访谈。下文面向用户的取舍和路径询问仅适用于主 Agent。
 
 Ask for a path only when persistent saving is requested and its target is missing; reuse an already authorized task or writing location. A conversational draft needs no file path. Complete the draft with the available material; ask only about consequential unresolved choices, then return to the current task or request.
 
